@@ -1,0 +1,95 @@
+/* places the postition of the header and tell what type of display it is */
+header{
+
+    margin: -10px 0px 0px -10px;
+    padding-left: 5px;
+    display: grid;
+    grid-template-areas: 
+    
+    "hamburger  title   title"
+    "nav    nav     nav";
+
+}
+/* Hides checkbox from view */
+.menu-chkbx{
+    display: none;
+}
+/* Places postition of hamburger */
+.menu-burger{
+
+    grid-area: hamburger;
+    padding: 30px 20px 30px 0;
+    position: relative;
+    visibility: visible;
+}
+/* Tells characteristics of the hamburger menu */
+.hamburger{
+    display: block;
+    height: 2px;
+    width: 20px;
+    position: relative;
+    background: rgb(0,0,0);
+}
+/* Position of hamburger before being clicked*/
+.hamburger:before{
+    top: 5px;
+}
+/* Postition of burger after being clicked*/
+.hamburger:after{
+    top: -5px;
+}
+/* Keep consistant characteristics for burger before and after being clicked*/
+.hamburger:before, .hamburger:after{
+    background: rgb(0, 0, 0);
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+}
+/* Make background for burger change after menu is checked*/
+.menu-chkbx:checked ~ .menu-burger .hamburger{
+
+    background: transparent;
+
+}
+/* Moves line in burger to form an X shape*/
+.menu-chkbx:checked ~ .menu-burger .hamburger:before{
+    transform: rotate(-45deg);
+}
+/* Moves line in burger to form X */
+.menu-chkbx:checked ~ .menu-burger .hamburger:after{
+    transform: rotate(45deg);
+}
+/* keeps burger from raising after checked*/
+.menu-chkbx:checked ~ .menu-burger .hamburger:before,
+.menu-chkbx:checked ~ .menu-burger .hamburger:after{
+    top: 0;
+}
+/* positions, aligns, and forms border for text in burger menu */
+nav ul li{
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0);
+}
+/* controls menu movement of burger*/
+.menu{
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+/* controls menu characteristics after clicked*/
+.menu-chkbx:checked ~ .menu{
+    max-height: 250px;
+    position: absolute;
+    margin-top: 62px;
+    z-index: 1;
+    border-radius: 5px;
+    background-color: rgb(220,220,220);
+}
+
+
